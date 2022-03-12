@@ -1,0 +1,26 @@
+mode: set
+github.com/ngamux/bstree/bstree.go:10.58,19.22 4 1
+github.com/ngamux/bstree/bstree.go:19.22,21.3 1 1
+github.com/ngamux/bstree/bstree.go:21.8,23.3 1 1
+github.com/ngamux/bstree/bstree.go:26.49,31.2 3 1
+github.com/ngamux/bstree/bstree.go:33.45,41.2 5 1
+github.com/ngamux/bstree/node.go:13.35,14.9 1 1
+github.com/ngamux/bstree/node.go:15.25,16.13 1 1
+github.com/ngamux/bstree/node.go:17.24,18.20 1 1
+github.com/ngamux/bstree/node.go:23.24,24.21 1 1
+github.com/ngamux/bstree/node.go:18.20,20.4 1 1
+github.com/ngamux/bstree/node.go:20.9,22.4 1 1
+github.com/ngamux/bstree/node.go:24.21,26.4 1 1
+github.com/ngamux/bstree/node.go:26.9,28.4 1 1
+github.com/ngamux/bstree/node.go:32.44,33.14 1 1
+github.com/ngamux/bstree/node.go:36.2,36.18 1 1
+github.com/ngamux/bstree/node.go:39.2,39.17 1 1
+github.com/ngamux/bstree/node.go:42.2,42.17 1 1
+github.com/ngamux/bstree/node.go:46.2,46.12 1 0
+github.com/ngamux/bstree/node.go:33.14,35.3 1 1
+github.com/ngamux/bstree/node.go:36.18,38.3 1 1
+github.com/ngamux/bstree/node.go:39.17,41.3 1 1
+github.com/ngamux/bstree/node.go:42.17,44.3 1 1
+github.com/ngamux/bstree/node.go:49.46,50.14 1 1
+github.com/ngamux/bstree/node.go:54.2,57.24 4 1
+github.com/ngamux/bstree/node.go:50.14,52.3 1 1
