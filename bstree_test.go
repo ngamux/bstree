@@ -109,17 +109,34 @@ func TestBSTree(t *testing.T) {
 }
 
 func BenchmarkBSTree(b *testing.B) {
+	tree := New()
+	tree.Insert("a", 1)
 
 	b.Run("insert with static key", func(b *testing.B) {
-		tree := &BSTree{}
 		for i := 0; i < b.N; i++ {
 			tree.Insert("a", i)
 		}
 	})
 
 	b.Run("get with static key", func(b *testing.B) {
-		tree := &BSTree{}
-		tree.Insert("a", 1)
+		for i := 0; i < b.N; i++ {
+			tree.Get("a")
+		}
+	})
+
+}
+
+func BenchmarkBSTreeSafe(b *testing.B) {
+	tree := New(WithSafe())
+	tree.Insert("a", 1)
+
+	b.Run("insert with static key", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			tree.Insert("a", i)
+		}
+	})
+
+	b.Run("get with static key", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			tree.Get("a")
 		}
