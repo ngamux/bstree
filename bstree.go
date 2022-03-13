@@ -1,6 +1,8 @@
 package bstree
 
-import "sync"
+import (
+	"sync"
+)
 
 type BSTree struct {
 	m sync.RWMutex
@@ -57,4 +59,16 @@ func (tree *BSTree) ToSlice() []interface{} {
 
 	tree.root.ToSlice(&datum)
 	return datum
+}
+
+func (tree *BSTree) Keys() []string {
+	var keys []string
+
+	if tree.isSafe {
+		tree.m.RLock()
+		defer tree.m.RUnlock()
+	}
+
+	tree.root.Keys(&keys)
+	return keys
 }

@@ -1,6 +1,7 @@
 package bstree
 
 import (
+	"reflect"
 	"testing"
 
 	"github.com/golang-must/must"
@@ -104,6 +105,17 @@ func TestBSTree(t *testing.T) {
 
 		result := tree.ToSlice()
 		must.True(len(result) > 0)
+	})
+
+	t.Run("can get all keys", func(t *testing.T) {
+		must := must.New(t)
+
+		result := tree.Keys()
+		must.True(len(result) > 0)
+
+		for _, key := range result {
+			must.Equal(reflect.TypeOf(key).String(), "string")
+		}
 	})
 
 }

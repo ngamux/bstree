@@ -53,3 +53,13 @@ func (n *node) ToSlice(datum *[]interface{}) {
 	*datum = append(*datum, n.data)
 	n.right.ToSlice(datum)
 }
+
+func (n *node) Keys(keys *[]string) {
+	if n == nil {
+		return
+	}
+
+	n.left.Keys(keys)
+	*keys = append(*keys, n.key)
+	n.right.Keys(keys)
+}
