@@ -10,6 +10,26 @@ func TestBSTree(t *testing.T) {
 
 	tree := &BSTree{}
 
+	t.Run("New returns new BSTree", func(t *testing.T) {
+		must := must.New(t)
+
+		expected := &BSTree{}
+		result := New()
+
+		must.Equal(expected, result)
+	})
+
+	t.Run("New with Opts returns new BSTree", func(t *testing.T) {
+		must := must.New(t)
+
+		expected := &BSTree{
+			isSafe: true,
+		}
+		result := New(WithSafe())
+
+		must.Equal(expected, result)
+	})
+
 	t.Run("can insert and get inserted data", func(t *testing.T) {
 		must := must.New(t)
 
