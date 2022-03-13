@@ -3,13 +3,28 @@ package bstree
 import "sync"
 
 type BSTree struct {
-	m    sync.RWMutex
+	m sync.RWMutex
+
+	isSafe bool
+
 	root *node
 }
 
+func New(opts ...func(*BSTree)) *BSTree {
+	tree := &BSTree{}
+
+	for _, opt := range opts {
+		opt(tree)
+	}
+
+	return tree
+}
+
 func (tree *BSTree) Insert(key string, data interface{}) {
-	tree.m.Lock()
-	defer tree.m.Unlock()
+	if tree.isSafe {
+		tree.m.Lock()
+		defer tree.m.Unlock()
+	}
 
 	newn := &node{
 		key:  key,
@@ -24,8 +39,10 @@ func (tree *BSTree) Insert(key string, data interface{}) {
 }
 
 func (tree *BSTree) Get(key string) interface{} {
-	tree.m.RLock()
-	defer tree.m.RUnlock()
+	if tree.isSafe {
+		tree.m.RLock()
+		defer tree.m.RUnlock()
+	}
 
 	return tree.root.get(key)
 }
@@ -33,8 +50,10 @@ func (tree *BSTree) Get(key string) interface{} {
 func (tree *BSTree) ToSlice() []interface{} {
 	var datum []interface{}
 
-	tree.m.RLock()
-	defer tree.m.RUnlock()
+	if tree.isSafe {
+		tree.m.RLock()
+		defer tree.m.RUnlock()
+	}
 
 	tree.root.ToSlice(&datum)
 	return datum
